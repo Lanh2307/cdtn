@@ -1,17 +1,18 @@
 <?php
 
-function getConnect(){
+function getConnect()
+{
 
 	$host = "localhost";
 	$dbname = "cdtn";
 	$dbusername = "root";
-	$dbpwd = "";
+	$dbpwd = "root";
 
-	
+
 	try {
 		$conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $dbusername, $dbpwd);
-	}catch(Exception $ex){
-        var_dump($ex->getMessage());
+	} catch (Exception $ex) {
+		var_dump($ex->getMessage());
 		die;
 	}
 	return $conn;
@@ -19,7 +20,8 @@ function getConnect(){
 
 
 
-function executeQuery($sqlQuery, $getAll = false){
+function executeQuery($sqlQuery, $getAll = false)
+{
 
 	// tạo kết nối đến csdl
 	$conn = getConnect();
@@ -31,11 +33,11 @@ function executeQuery($sqlQuery, $getAll = false){
 
 	// lấy dữ liệu đc trả về từ csdl và gán cho biến $result
 	$result = $stmt->fetchAll();
-	if(!$result){
+	if (!$result) {
 		return null;
 	}
 
-	if($getAll){
+	if ($getAll) {
 		return $result;
 	}
 
@@ -45,14 +47,11 @@ function executeQuery($sqlQuery, $getAll = false){
 
 
 // Convert Price Product to VND
-function product_price($priceFloat) {
+function product_price($priceFloat)
+{
 	$symbol = 'đ';
 	$symbol_thousand = '.';
 	$decimal_place = 0;
 	$price = number_format($priceFloat, $decimal_place, '', $symbol_thousand);
-	return $price. $symbol;
+	return $price . $symbol;
 }
-
-
-	
-?>

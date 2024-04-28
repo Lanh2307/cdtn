@@ -1,7 +1,6 @@
 <?php
 //require("header.php");
 require("./Config/Connectdb.php");
-
 ?>
 
 <!DOCTYPE html>
@@ -40,10 +39,62 @@ require("./Config/Connectdb.php");
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+
+  <style>
+    /* Toast Container */
+    .toast-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999999;
+    }
+
+    /* Toast */
+    .toast {
+      min-width: 250px;
+      margin-bottom: 16px;
+      color: #fff;
+      background-color: #04AA6D;
+      border-radius: 4px;
+      padding: 16px;
+      position: relative;
+      transition: all 0.5s ease;
+    }
+
+    /* Close button */
+    .toast .close-btn {
+      position: absolute;
+      right: 10px;
+      top: 5px;
+      border: none;
+      background: none;
+      color: inherit;
+      font-size: 20px;
+      outline: none;
+    }
+
+    .toast .countdown {
+      position: absolute;
+      right: 10px;
+      bottom: 5px;
+      font-size: 12px;
+    }
+  </style>
+
 </head>
 
 <body>
 
+  <!-- Toast Notification -->
+  <div class="toast-container">
+    <div class="toast">
+      <span>đăng kí thành công</span>
+      <button class="close-btn" onclick="closeToast()">&times;</button>
+      <div class="countdown"></div>
+    </div>
+  </div>
+  <!-- Toast Notification end -->
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
@@ -100,7 +151,7 @@ require("./Config/Connectdb.php");
                 <a href="#">Column 4 link 2</a>
                 <a href="#">Column 4 link 3</a>
               </li>
-             
+
             </ul>
           </li>
           <li><a href="register.php">Contact</a></li>
@@ -121,9 +172,10 @@ require("./Config/Connectdb.php");
       <img src="assets/img/zenlish-bg.png" alt="" data-aos="fade-in" class="img-styles">
 
       <div class="container">
-       <!-- <h2 data-aos="fade-up" data-aos-delay="100" class="">Learning Today,<br>Leading Tomorrow</h2>
+        <!-- <h2 data-aos="fade-up" data-aos-delay="100" class="">Learning Today,<br>Leading Tomorrow</h2>
         <p data-aos="fade-up" data-aos-delay="200">We are team of talented designers making websites with Bootstrap</p>
-        --><div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+        -->
+        <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
           <a href="register.php" class="btn-get-started">Get Started</a>
         </div>
       </div>
@@ -144,9 +196,9 @@ require("./Config/Connectdb.php");
           <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
             <h3>Voluptatem dignissimos provident quasi corporis</h3>
             <p class="fst-italic">
-              Zenlish là trung tâm duy nhất tại Hà Nội có lộ trình đào tạo TOEIC Học 1 Lần Là Đạt, 
-              tạo ra sự tiến bộ từng ngày cho những học viên đã từng sợ, học đi học lại nhiều lần nhưng không đạt, 
-              những người mong muốn học TOEICc ra trường hay đạt trên 800 TOEIC từ lần đầu học để sử dụng thành thạo Tiếng Anh, 
+              Zenlish là trung tâm duy nhất tại Hà Nội có lộ trình đào tạo TOEIC Học 1 Lần Là Đạt,
+              tạo ra sự tiến bộ từng ngày cho những học viên đã từng sợ, học đi học lại nhiều lần nhưng không đạt,
+              những người mong muốn học TOEICc ra trường hay đạt trên 800 TOEIC từ lần đầu học để sử dụng thành thạo Tiếng Anh,
               tạo ra lợi thế khác biệt trong môi trường cạnh tranh việc làm khốc liệt.
             </p>
             <ul>
@@ -527,8 +579,8 @@ require("./Config/Connectdb.php");
   </main>
 
   <?php
-require("footer.php");
-?>
+  require("footer.php");
+  ?>
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -546,7 +598,44 @@ require("footer.php");
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <!-- JavaScript for Countdown and Auto-close -->
+  <script>
+    // Countdown function
+    function startCountdown(duration, element) {
+      let timer = duration,
+        minutes, seconds;
+      let countdownInterval = setInterval(function() {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
 
+        element.textContent = `Closing in ${seconds}s`;
+
+        if (--timer < 0) {
+          closeToast();
+          clearInterval(countdownInterval);
+        }
+      }, 1000);
+    }
+
+    // Close toast function
+    function closeToast() {
+      document.querySelector('.toast').style.opacity = '0';
+      setTimeout(function() {
+        document.querySelector('.toast-container').style.display = 'none';
+      }, 500);
+      // Clear session message
+      <?php unset($_SESSION['success_message']); ?>
+    }
+
+    // Start the countdown when the toast is present
+    window.onload = function() {
+      const toast = document.getElementById('successToast');
+      const countdown = document.getElementById('countdown');
+      if (toast && countdown) {
+        startCountdown(5, countdown, toast); // 5 seconds countdown
+      }
+    }
+  </script>
 </body>
 
 </html>

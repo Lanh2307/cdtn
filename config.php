@@ -1,9 +1,9 @@
 <!-- dùng trên web thường -->
 <?php
 session_start();
-$conn = mysqli_connect('localhost', 'root', '', 'cdtn');
-if($conn->connect_error){
-    die('Connection Failed : '.$conn->connect_error);
+$conn = mysqli_connect('localhost', 'root', 'root', 'cdtn');
+if ($conn->connect_error) {
+    die('Connection Failed : ' . $conn->connect_error);
 }
 ?>
 <!-- dùng trên 000webhost -->
