@@ -44,6 +44,9 @@ require("./Config/Connectdb.php");
   <style>
     /* Toast Container */
     .toast-container {
+      background-color: #29cc61;
+      width: 284px;
+      height: 56px;
       position: fixed;
       top: 20px;
       right: 20px;
@@ -54,7 +57,7 @@ require("./Config/Connectdb.php");
     .toast {
       min-width: 250px;
       margin-bottom: 16px;
-      color: #fff;
+      color: black;
       background-color: #04AA6D;
       border-radius: 4px;
       padding: 16px;
@@ -87,13 +90,13 @@ require("./Config/Connectdb.php");
 <body>
 
   <!-- Toast Notification -->
-  <div class="toast-container">
+  <!-- <div class="toast-container">
     <div class="toast">
       <span>đăng kí thành công</span>
       <button class="close-btn" onclick="closeToast()">&times;</button>
       <div class="countdown"></div>
     </div>
-  </div>
+  </div> -->
   <!-- Toast Notification end -->
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
