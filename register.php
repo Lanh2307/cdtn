@@ -109,6 +109,23 @@ if (isset($_POST['TenHV'])) {
         .form-check-input {
             margin-right: 0.5rem;
         }
+
+        .registration-form {
+            max-width: 40%;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        }
+
+        .img-fluid {
+            max-width: 90%;
+            height: 95%;
+            /* Giảm kích thước ảnh nếu cần */
+            margin: 0 auto;
+            /* Căn ảnh giữa cột */
+            border-radius: 15px;
+        }
+    </style>
     </style>
 
 
@@ -143,63 +160,72 @@ if (isset($_POST['TenHV'])) {
         </div>
     </header>
 
+    <div class="container">
+        <div class="row">
+            <div class="registration-form">
+                <h2 class="text-center">Đăng Ký Học Viên</h2>
+                <form action="submit_form.php" method="POST">
+                    <!-- Name -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Tên học viên</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên học viên" required>
+                    </div>
 
-    <div class="registration-form">
-        <h2 class="text-center">Đăng Ký Học Viên</h2>
-        <form action="submit_form.php" method="POST">
-            <!-- Name -->
-            <div class="mb-3">
-                <label for="name" class="form-label">Tên học viên</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên học viên" required>
+                    <!-- Date of Birth -->
+                    <div class="mb-3">
+                        <label for="dob" class="form-label">Ngày sinh</label>
+                        <input type="date" class="form-control" id="dob" name="dob" required>
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="mb-3">
+                        <label class="form-label me-5">Giới tính</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="male" required>
+                            <label class="form-check-label" for="male">Nam</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="female" required>
+                            <label class="form-check-label" for="female">Nữ</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="other" value="other" required>
+                            <label class="form-check-label" for="other">Khác</label>
+                        </div>
+                    </div>
+
+                    <!-- Address -->
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Địa chỉ</label>
+                        <input type="text" class="form-control" id="address" name="address" placeholder="Nhập địa chỉ" required>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Số điện thoại</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Nhập số điện thoại" required>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Nhập email" required>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Đăng Ký</button>
+                    </div>
+                </form>
             </div>
 
-            <!-- Date of Birth -->
-            <div class="mb-3">
-                <label for="dob" class="form-label">Ngày sinh</label>
-                <input type="date" class="form-control" id="dob" name="dob" required>
+            <!-- Column for Image -->
+            <div class="col-md-6 d-flex align-items-center">
+                <img src="assets/img/zenlish_lananh.jpg" alt="Education Image" class="img-fluid">
             </div>
-
-            <!-- Gender -->
-            <div class="mb-3">
-                <label class="form-label me-5">Giới tính</label>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" id="male" value="male" required>
-                    <label class="form-check-label" for="male">Nam</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" id="female" value="female" required>
-                    <label class="form-check-label" for="female">Nữ</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" id="other" value="other" required>
-                    <label class="form-check-label" for="other">Khác</label>
-                </div>
-            </div>
-
-            <!-- Address -->
-            <div class="mb-3">
-                <label for="address" class="form-label">Địa chỉ</label>
-                <input type="text" class="form-control" id="address" name="address" placeholder="Nhập địa chỉ" required>
-            </div>
-
-            <!-- Phone Number -->
-            <div class="mb-3">
-                <label for="phone" class="form-label">Số điện thoại</label>
-                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Nhập số điện thoại" required>
-            </div>
-
-            <!-- Email -->
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Nhập email" required>
-            </div>
-
-            <!-- Submit Button -->
-            <div class="d-grid">
-                <button type="submit" class="btn btn-primary">Đăng Ký</button>
-            </div>
-        </form>
+        </div>
     </div>
+
 
     <?php
     require("footer.php");
