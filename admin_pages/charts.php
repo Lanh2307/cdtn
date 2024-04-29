@@ -28,6 +28,22 @@ if ($conn->connect_error) {
 
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+  <style>
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      /* Đảm bảo các mục ở hai bên */
+      align-items: center;
+      /* Căn giữa các mục theo chiều dọc */
+    }
+
+    .card-header .btn-success {
+      margin-left: auto;
+      /* Đẩy nút sang phải */
+    }
+  </style>
+  </style>
 </head>
 
 <body id="page-top">
@@ -355,227 +371,122 @@ if ($conn->connect_error) {
               <h6 class="m-0 font-weight-bold text-primary">
                 DataTables Example
               </h6>
+              <!-- Nút Thêm lớp -->
+              <button class="btn btn-success" data-toggle="modal" data-target="#addClassModal">Thêm lớp</button>
+
+            </div>
+            <script>
+              function submitAddClassForm() {
+                const formData = $('#addClassForm').serialize(); // Lấy dữ liệu từ form
+                $.ajax({
+                  type: 'POST',
+                  url: 'save_class.php', // URL tới file PHP xử lý dữ liệu
+                  data: formData,
+                  success: function(response) {
+                    $('#addClassModal').modal('hide'); // Ẩn modal sau khi lưu thành công
+                    alert(response); // Hiển thị thông báo từ server
+                    location.reload(); // Reload trang để cập nhật dữ liệu mới
+                  },
+                  error: function() {
+                    alert('Có lỗi xảy ra, không thể thêm lớp học.');
+                  }
+                });
+              }
+            </script>
+            <!-- Modal Thêm Lớp -->
+            <div class="modal fade" id="addClassModal" tabindex="-1" role="dialog" aria-labelledby="addClassModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="addClassModalLabel">Thêm Lớp Học Mới</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <!-- Form Thêm Lớp -->
+                    <form id="addClassForm">
+                      <div class="form-group">
+                        <label for="MaLop">Mã Lớp</label>
+                        <input type="text" class="form-control" id="MaLop" name="MaLop" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="LoaiLop">Loại Lớp</label>
+                        <input type="text" class="form-control" id="LoaiLop" name="LoaiLop" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="NgayBD">Ngày Bắt Đầu</label>
+                        <input type="date" class="form-control" id="NgayBD" name="NgayBD" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="NgayKT">Ngày Kết Thúc</label>
+                        <input type="date" class="form-control" id="NgayKT" name="NgayKT" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="SiSo">Sĩ Số</label>
+                        <input type="number" class="form-control" id="SiSo" name="SiSo" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="TinhTrang">Tình Trạng</label>
+                        <select class="form-control" id="TinhTrang" name="TinhTrang">
+                          <option value="Hoạt Động">Hết chỗ</option>
+                          <option value="Không Hoạt Động">Không còn chỗ</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="MaCH">Mã Ca Học</label>
+                        <input type="text" class="form-control" id="MaCH" name="MaCH">
+                      </div>
+                      <div class="form-group">
+                        <label for="MaCN">Mã Chi Nhánh</label>
+                        <input type="text" class="form-control" id="MaCN" name="MaCN">
+                      </div>
+                      <div class="form-group">
+                        <label for="MaGV">Mã Giáo Viên</label>
+                        <input type="text" class="form-control" id="MaGV" name="MaGV">
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" onclick="submitAddClassForm()">Lưu Thay Đổi</button>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
                   <thead>
                     <tr>
-                      <th>Mã học viên</th>
-                      <th>Tên học viên</th>
-                      <th>Điểm</th>
-                      <th>Ngày đăng kí</th>
-                      <th>Quản lí</th>
+                      <th>Mã lớp</th>
+                      <th>Loại lớp</th>
+                      <th>ngày bắt đầu</th>
+                      <th>Sĩ số</th>
+                      <th>Tình trạng</th>
+                      <th>Tên giáo viên</th>
                     </tr>
                   </thead>
-                  <tfoot>
-                    <tr>
-                      <th>Mã học viên</th>
-                      <th>Tên học viên</th>
-                      <th>Điểm</th>
-                      <th>Ngày đăng kí</th>
-                      <th>Quản lí</th>
-                    </tr>
-                  </tfoot>
                   <tbody>
                     <?php
-                    $sql = "SELECT * FROM hoc_vien";
+                    $sql = "SELECT *, TenGV FROM lop_hoc, giang_vien WHERE lop_hoc.MaGV = giang_vien.MaGV";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
                       // output data of each row
                       while ($row = $result->fetch_assoc()) {
-                        $maHV = $row["MaHV"];
                         echo "<tr>";
-                        echo "<td>" . $maHV . "</td>";
-                        echo "<td>" . $row["TenHV"] . "</td>";
-                        echo "<td>" . $row["DiemDauVao"] . "</td>";
-                        echo "<td>" . $row["NgayTiepNhan"] . "</td>";
-                        echo "<td>
-                                  <button data-toggle='modal' data-target='#viewModal$maHV' class='btn btn-primary btn-sm'>Xem</button>
-                                  <button data-toggle='modal' data-target='#editModal$maHV' class='btn btn-secondary btn-sm'>Sửa</button>
-                                  <button data-toggle='modal' data-target='#deleteModal$maHV' class='btn btn-danger btn-sm'>Xóa</button>
-                                  <button data-toggle='modal' data-target='#classifyModal$maHV' class='btn btn-info btn-sm'>Xếp lớp</button>
-                                </td>";
+                        echo "<td>" . $row["MaLop"] . "</td>";
+                        echo "<td>" . $row["LoaiLop"] . "</td>";
+                        echo "<td>" . $row["NgayBD"] . "</td>";
+                        echo "<td>" . $row["SiSo"] . "</td>";
+                        echo "<td>" . $row["TinhTrang"] . "</td>";
+                        echo "<td>" . $row["TenGV"] . "</td>";
                         echo "</tr>";
-
-                        // Modal cho Xem
-                        echo createModalView("viewModal$maHV", "Xem Học Viên", $row);
-
-                        //   // Modal cho Xóa
-                        echo createModalDelete("deleteModal$maHV", "Xóa Học Viên", $row);
-                        // Modal cho Sửa
-                        echo createModalEdit("editModal$maHV", "Sửa Thông tin Học Viên", $row);
-                        //   // Modal cho Xếp Lớp
-                        //   echo createModal("classifyModal$maHV", "Xếp Lớp Học Viên", $row);
                       }
-                    } else {
-                      echo "<tr><td colspan='5'>0 results</td></tr>";
                     }
-
-                    function createModalView($id, $title, $row)
-                    {
-                      $modalContent = "
-                      <div class='modal fade' id='$id' tabindex='-1' role='dialog' aria-labelledby='{$id}Label' aria-hidden='true'>
-                          <div class='modal-dialog modal-dialog-centered' role='document'>
-                              <div class='modal-content'>
-                                  <div class='modal-header'>
-                                      <h5 class='modal-title' id='{$id}Label'>$title</h5>
-                                      <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                                          <span aria-hidden='true'>&times;</span>
-                                      </button>
-                                  </div>
-                                  <div class='modal-body'>";
-
-                      // Tạo nội dung thông tin học viên
-                      $modalContent .= "<div class='card'>";
-                      $modalContent .= "<div class='card-body'>";
-                      $modalContent .= "<h5 class='card-title'>Thông Tin Học Viên</h5>";
-                      $modalContent .= "<div class='card-text'>";
-                      $modalContent .= "<strong>Mã học viên:</strong> " . $row["MaHV"] . "<br>";
-                      $modalContent .= "<strong>Họ tên:</strong> " . $row["TenHV"] . "<br>";
-                      $modalContent .= "<strong>Ngày sinh:</strong> " . $row["NgaySinh"] . "<br>";
-                      $modalContent .= "<strong>Giới tính:</strong> " . ($row["GioiTinh"] == 1 ? 'Nam' : 'Nữ') . "<br>"; // Giả sử 1 là Nam, 0 là Nữ
-                      $modalContent .= "<strong>Địa chỉ:</strong> " . $row["DiaChi"] . "<br>";
-                      $modalContent .= "<strong>Số điện thoại:</strong> " . $row["SdtHV"] . "<br>";
-                      $modalContent .= "<strong>Email:</strong> " . $row["EmailHV"] . "<br>";
-                      $modalContent .= "<strong>Ngày Tiếp Nhận:</strong> " . $row["NgayTiepNhan"] . "<br>";
-                      $modalContent .= "<strong>Điểm đầu vào:</strong> " . $row["DiemDauVao"] . "<br>";
-                      $modalContent .= "<strong>Mã lớp:</strong> " . $row["MaLop"] . "<br>";
-                      $modalContent .= "</div>";
-                      $modalContent .= "</div>";
-                      $modalContent .= "</div>";
-
-                      $modalContent .= "</div>
-                                        <div class='modal-footer'>
-                                            <button type='button' class='btn btn-secondary' data-dismiss='modal'>Đóng</button>
-                                  
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                      ";
-
-                      return $modalContent;
-                    }
-
-                    function createModalEdit($id, $title, $row)
-                    {
-                      $modalEditContent = "
-                      <div class='modal fade' id='{$id}' tabindex='-1' role='dialog' aria-labelledby='{$id}EditLabel' aria-hidden='true'>
-                          <div class='modal-dialog modal-dialog-centered' role='document'>
-                              <div class='modal-content'>
-                                  <div class='modal-header'>
-                                      <h5 class='modal-title' id='{$id}EditLabel'>$title</h5>
-                                      <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                                          <span aria-hidden='true'>&times;</span>
-                                      </button>
-                                  </div>
-                                  <div class='modal-body'>
-                                      <form id='editForm{$id}' method='post' action='update_data_student.php'>
-                                          <div class='form-group'>
-                                              <label for='MaHV{$id}'>Mã học viên</label>
-                                              <input type='text' class='form-control' id='MaHV{$id}' name='MaHV' value='" . $row["MaHV"] . "' readonly>
-                                          </div>
-                                          <div class='form-group'>
-                                              <label for='TenHV{$id}'>Họ tên</label>
-                                              <input type='text' class='form-control' id='TenHV{$id}' name='TenHV' value='" . $row["TenHV"] . "' required>
-                                          </div>
-                                          <div class='form-group'>
-                                              <label for='NgaySinh{$id}'>Ngày sinh</label>
-                                              <input type='date' class='form-control' id='NgaySinh{$id}' name='NgaySinh' value='" . $row["NgaySinh"] . "' required>
-                                          </div>
-                                          <div class='form-group'>
-                                              <label for='GioiTinh{$id}'>Giới tính</label>
-                                              <select class='form-control' id='GioiTinh{$id}' name='GioiTinh' required>
-                                                  <option value='1'" . ($row["GioiTinh"] == 1 ? ' selected' : '') . ">Nam</option>
-                                                  <option value='0'" . ($row["GioiTinh"] == 0 ? ' selected' : '') . ">Nữ</option>
-                                              </select>
-                                          </div>
-                                          <div class='form-group>
-                                              <label for='DiemDauVao{$id}'>Điểm đầu vào</label>
-                                              <input type='text' class='form-control' id='DiemDauVao{$id}' name='DiemDauVao' value='" . $row["DiemDauVao"] . "' required>
-                                          </div>
-
-                                          <div class='form-group'>
-                                              <label for='DiaChi{$id}'>Địa chỉ</label>
-                                              <input type='text' class='form-control' id='DiaChi{$id}' name='DiaChi' value='" . $row["DiaChi"] . "' required>
-                                          </div>
-                                          <div class='form-group'>
-                                              <label for='SdtHV{$id}'>Số điện thoại</label>
-                                              <input type='text' class='form-control' id='SdtHV{$id}' name='SdtHV' value='" . $row["SdtHV"] . "' required>
-                                          </div>
-                                          <div class='form-group'>
-                                              <label for='EmailHV{$id}'>Email</label>
-                                              <input type='email' class='form-control' id='EmailHV{$id}' name='EmailHV' value='" . $row["EmailHV"] . "' required>
-                                              <div class='form-group'>
-                                            <label for='MaLop{$id}'>Mã lớp</label>
-                                            <input type='text' class='form-control' id='MaLop{$id}' name='MaLop' value='" . $row["MaLop"] . "' required>
-                                        </div>
-                                        <!-- Có thể thêm các trường nhập liệu khác nếu cần -->
-                                    </form>
-                                  </div>
-                                  <div class='modal-footer'>
-                                      <button type='button' class='btn btn-secondary' data-dismiss='modal'>Đóng</button>
-                                      <button type='submit' form='editForm{$id}' class='btn btn-primary'>Lưu Thay Đổi</button>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      ";
-
-                      return $modalEditContent;
-                    }
-
-                    function createModalDelete($id, $title, $row)
-                    {
-                      $modalDeleteContent = "
-                      <div class='modal fade' id='{$id}' tabindex='-1' role='dialog' aria-labelledby='{$id}DeleteLabel' aria-hidden='true'>
-                          <div class='modal-dialog modal-dialog-centered' role='document'>
-                              <div class='modal-content'>
-                                  <div class='modal-header'>
-                                      <h5 class='modal-title' id='{$id}DeleteLabel'>$title</h5>
-                                      <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                                          <span aria-hidden='true'>&times;</span>
-                                      </button>
-                                  </div>
-                                  <div class='modal-body'>
-                                      Bạn có chắc chắn muốn xóa học viên này không?
-                                  </div>
-                                  <div class='modal-footer'>
-                                      <button type='button' class='btn btn-secondary' data-dismiss='modal'>Hủy</button>
-                                      <button type='button' class='btn btn-danger' onclick='deleteStudent(\"" . $row["MaHV"] . "\")'>Xóa</button>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      ";
-                      return $modalDeleteContent;
-                    }
-
-
-
                     ?>
-
-                    <script>
-                      function deleteStudent(maHV) {
-                        $.ajax({
-                          url: 'delete_student.php', // Đường dẫn tới file xử lý
-                          type: 'POST',
-                          data: {
-                            MaHV: maHV
-                          },
-                          success: function(response) {
-                            // Thông báo thành công hoặc cập nhật trang
-                            alert('Xóa học viên thành công!');
-                            window.location.reload(); // Tải lại trang để cập nhật danh sách
-                          },
-                          error: function() {
-                            alert('Có lỗi xảy ra, vui lòng thử lại.');
-                          }
-                        });
-                      }
-                    </script>
                   </tbody>
                 </table>
               </div>
