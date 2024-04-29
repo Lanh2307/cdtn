@@ -1,6 +1,12 @@
 <?php
 //require("header.php");
 require("./Config/Connectdb.php");
+session_start();
+if (isset($_SESSION['success_message'])) {
+  echo "<script>alert('" . $_SESSION['success_message'] . "');</script>";
+  // Xóa thông báo sau khi đã hiển thị
+  unset($_SESSION['success_message']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -39,65 +45,10 @@ require("./Config/Connectdb.php");
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-
-
-  <style>
-    /* Toast Container */
-    .toast-container {
-      background-color: #29cc61;
-      width: 284px;
-      height: 56px;
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 999999;
-    }
-
-    /* Toast */
-    .toast {
-      min-width: 250px;
-      margin-bottom: 16px;
-      color: black;
-      background-color: #04AA6D;
-      border-radius: 4px;
-      padding: 16px;
-      position: relative;
-      transition: all 0.5s ease;
-    }
-
-    /* Close button */
-    .toast .close-btn {
-      position: absolute;
-      right: 10px;
-      top: 5px;
-      border: none;
-      background: none;
-      color: inherit;
-      font-size: 20px;
-      outline: none;
-    }
-
-    .toast .countdown {
-      position: absolute;
-      right: 10px;
-      bottom: 5px;
-      font-size: 12px;
-    }
-  </style>
-
 </head>
 
 <body>
 
-  <!-- Toast Notification -->
-  <!-- <div class="toast-container">
-    <div class="toast">
-      <span>đăng kí thành công</span>
-      <button class="close-btn" onclick="closeToast()">&times;</button>
-      <div class="countdown"></div>
-    </div>
-  </div> -->
-  <!-- Toast Notification end -->
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
@@ -601,44 +552,7 @@ require("./Config/Connectdb.php");
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-  <!-- JavaScript for Countdown and Auto-close -->
-  <script>
-    // Countdown function
-    function startCountdown(duration, element) {
-      let timer = duration,
-        minutes, seconds;
-      let countdownInterval = setInterval(function() {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
 
-        element.textContent = `Closing in ${seconds}s`;
-
-        if (--timer < 0) {
-          closeToast();
-          clearInterval(countdownInterval);
-        }
-      }, 1000);
-    }
-
-    // Close toast function
-    function closeToast() {
-      document.querySelector('.toast').style.opacity = '0';
-      setTimeout(function() {
-        document.querySelector('.toast-container').style.display = 'none';
-      }, 500);
-      // Clear session message
-      <?php unset($_SESSION['success_message']); ?>
-    }
-
-    // Start the countdown when the toast is present
-    window.onload = function() {
-      const toast = document.getElementById('successToast');
-      const countdown = document.getElementById('countdown');
-      if (toast && countdown) {
-        startCountdown(5, countdown, toast); // 5 seconds countdown
-      }
-    }
-  </script>
 </body>
 
 </html>
