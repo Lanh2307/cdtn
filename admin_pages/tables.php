@@ -365,18 +365,11 @@ if ($conn->connect_error) {
                       <th>Tên học viên</th>
                       <th>Điểm</th>
                       <th>Ngày đăng kí</th>
+                      <th>Mã lớp</th>
                       <th>Quản lí</th>
+
                     </tr>
                   </thead>
-                  <tfoot>
-                    <tr>
-                      <th>Mã học viên</th>
-                      <th>Tên học viên</th>
-                      <th>Điểm</th>
-                      <th>Ngày đăng kí</th>
-                      <th>Quản lí</th>
-                    </tr>
-                  </tfoot>
                   <tbody>
                     <?php
                     $sql = "SELECT * FROM hoc_vien";
@@ -391,11 +384,12 @@ if ($conn->connect_error) {
                         echo "<td>" . $row["TenHV"] . "</td>";
                         echo "<td>" . $row["DiemDauVao"] . "</td>";
                         echo "<td>" . $row["NgayTiepNhan"] . "</td>";
+                        echo "<td>" . $row["MaLop"] . "</td>";
                         echo "<td>
                                   <button data-toggle='modal' data-target='#viewModal$maHV' class='btn btn-primary btn-sm'>Xem</button>
                                   <button data-toggle='modal' data-target='#editModal$maHV' class='btn btn-secondary btn-sm'>Sửa</button>
                                   <button data-toggle='modal' data-target='#deleteModal$maHV' class='btn btn-danger btn-sm'>Xóa</button>
-                                  <button data-toggle='modal' data-target='#classifyModal$maHV' class='btn btn-info btn-sm'>Xếp lớp</button>
+                                 <!-- <button data-toggle='modal' data-target='#classifyModal$maHV' class='btn btn-info btn-sm'>Xếp lớp</button> -->
                                 </td>";
                         echo "</tr>";
 
@@ -405,7 +399,7 @@ if ($conn->connect_error) {
                         //   // Modal cho Xóa
                         echo createModalDelete("deleteModal$maHV", "Xóa Học Viên", $row);
                         // Modal cho Sửa
-                        echo createModalEdit("editModal$maHV", "Sửa Thông tin Học Viên", $row);
+                        echo createModalEdit("editModal$maHV", "Sửa Thông tin Học Viên", $row, $conn);
                         //   // Modal cho Xếp Lớp
                         //   echo createModal("classifyModal$maHV", "Xếp Lớp Học Viên", $row);
                       }
@@ -459,8 +453,21 @@ if ($conn->connect_error) {
                       return $modalContent;
                     }
 
-                    function createModalEdit($id, $title, $row)
+                    function fetchClasses($conn)
                     {
+                      $classOptions = '';
+                      $query = "SELECT MaLop FROM lop_hoc WHERE TinhTrang = 'Còn Chỗ'";
+                      $result = $conn->query($query);
+                      while ($row = $result->fetch_assoc()) {
+                        $classOptions .= "<option value='" . $row['MaLop'] . "'>" . $row['MaLop'] . "</option>";
+                      }
+                      return $classOptions;
+                    }
+
+                    function createModalEdit($id, $title, $row, $conn)
+                    {
+
+                      $classOptions = fetchClasses($conn);
                       $modalEditContent = "
                       <div class='modal fade' id='{$id}' tabindex='-1' role='dialog' aria-labelledby='{$id}EditLabel' aria-hidden='true'>
                           <div class='modal-dialog modal-dialog-centered' role='document'>
@@ -509,8 +516,13 @@ if ($conn->connect_error) {
                                               <label for='EmailHV{$id}'>Email</label>
                                               <input type='email' class='form-control' id='EmailHV{$id}' name='EmailHV' value='" . $row["EmailHV"] . "' required>
                                               <div class='form-group'>
-                                            <label for='MaLop{$id}'>Mã lớp</label>
-                                            <input type='text' class='form-control' id='MaLop{$id}' name='MaLop' value='" . $row["MaLop"] . "' required>
+                                              <label for='MaLop{$id}'>Mã lớp</label>
+                                              <select class='form-control' id='MaLop{$id}' name='MaLop' required>
+                                                  $classOptions
+                                              </select>
+                                          </div>
+                                                  
+                                              </select>
                                         </div>
                                         <!-- Có thể thêm các trường nhập liệu khác nếu cần -->
                                     </form>

@@ -380,7 +380,7 @@ if ($conn->connect_error) {
                 const formData = $('#addClassForm').serialize(); // Lấy dữ liệu từ form
                 $.ajax({
                   type: 'POST',
-                  url: 'save_class.php', // URL tới file PHP xử lý dữ liệu
+                  url: 'addclass.php', // URL tới file PHP xử lý dữ liệu
                   data: formData,
                   success: function(response) {
                     $('#addClassModal').modal('hide'); // Ẩn modal sau khi lưu thành công
@@ -429,8 +429,8 @@ if ($conn->connect_error) {
                       <div class="form-group">
                         <label for="TinhTrang">Tình Trạng</label>
                         <select class="form-control" id="TinhTrang" name="TinhTrang">
-                          <option value="Hoạt Động">Hết chỗ</option>
-                          <option value="Không Hoạt Động">Không còn chỗ</option>
+                          <option value="Hoạt Động">Còn chỗ</option>
+                          <option value="Không Hoạt Động">Hết chỗ</option>
                         </select>
                       </div>
                       <div class="form-group">
