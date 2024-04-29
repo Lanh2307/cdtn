@@ -10,7 +10,7 @@ $phone = $_POST['phone'];
 $email = $_POST['email'];
 $current_date = date('Y-m-d'); // Lấy ngày tháng năm hiện tại
 
-$conn = mysqli_connect('localhost', 'root', 'root', 'cdtn');
+$conn = mysqli_connect('localhost', 'root', '', 'cdtn');
 
 // Kiểm tra kết nối
 if ($conn->connect_error) {
