@@ -119,13 +119,11 @@ if (isset($_POST['TenHV'])) {
     <header id="header" class="header d-flex align-items-center sticky-top">
         <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-            <a href="login.php" class="d-none d-lg-inline-flex page-item text" style="text-decoration: none">
-                Đăng Nhập
-                <span>&#160;<i class="fa-solid fa-right-to-bracket"></i>&ensp;</span> </a>
-            <a href="register.php" class="nd-none d-lg-inline-flex page-item text" style="text-decoration: none">
-                Đăng Ký
-                <span>&#160;<i class="fa-regular fa-registered"></i></span>
-            </a>
+        <a href="index.php" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="">Zenlish</h1>
+      </a>
 
             <nav id="navmenu" class="navmenu">
                 <ul>

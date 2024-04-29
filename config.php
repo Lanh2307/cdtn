@@ -1,7 +1,7 @@
 <!-- dùng trên web thường -->
 <?php
 session_start();
-$conn = mysqli_connect('localhost', 'root', 'root', 'cdtn');
+$conn = mysqli_connect('localhost', 'root', '', 'cdtn');
 if ($conn->connect_error) {
     die('Connection Failed : ' . $conn->connect_error);
 }

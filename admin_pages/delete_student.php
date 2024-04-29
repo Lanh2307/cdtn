@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect('localhost', 'root', 'root', 'cdtn'); // Kết nối tới database
+$conn = mysqli_connect('localhost', 'root', '', 'cdtn'); // Kết nối tới database
 
 if ($conn->connect_error) {
     die("Kết nối thất bại: " . $conn->connect_error);

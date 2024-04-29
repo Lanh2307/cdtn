@@ -2,7 +2,7 @@
 <?php
 
 
-$conn = mysqli_connect('localhost', 'root', 'root', 'cdtn');
+$conn = mysqli_connect('localhost', 'root', '', 'cdtn');
 
 // Kiểm tra kết nối
 if ($conn->connect_error) {
