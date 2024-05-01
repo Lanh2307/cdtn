@@ -15,13 +15,12 @@ if (isset($_SESSION['success_message'])) {
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - Mentor Bootstrap Template</title>
+  <title>Index - Zenlish</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/pngegg.png" rel="icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -64,11 +63,12 @@ if (isset($_SESSION['success_message'])) {
           <li><a href="about.php">About</a></li>
           <li><a href="trainers.php">Trainers</a></li>
           <li class="dropdown has-dropdown"><a href="courses.php"><span>Courses</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Camp Bomb Toeic</a></li>
-              <li><a href="#">Submarine Toeic</a></li>
+          <ul>
+              <li><a href="course-details C.php">Camp Bomb Toeic</a></li>
+              <li><a href="course-details S.php">Submarine Toeic</a></li>
 
-            </ul>
+          </ul>
+
           </li>
           <li><a href="contact.php">Contact</a></li>
         </ul>
@@ -110,7 +110,7 @@ if (isset($_SESSION['success_message'])) {
           </div>
 
           <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
-            <h3>Voluptatem dignissimos provident quasi corporis</h3>
+            <h3>Giới thiệu</h3>
             <p class="fst-italic">
               Zenlish là trung tâm duy nhất tại Hà Nội có lộ trình đào tạo TOEIC Học 1 Lần Là Đạt,
               tạo ra sự tiến bộ từng ngày cho những học viên đã từng sợ, học đi học lại nhiều lần nhưng không đạt,
@@ -118,9 +118,9 @@ if (isset($_SESSION['success_message'])) {
               tạo ra lợi thế khác biệt trong môi trường cạnh tranh việc làm khốc liệt.
             </p>
             <ul>
-              <li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Trở thành trung tâm đào tạo Toeic chất lượng nhất.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Đồng hành và dẫn dắt thế hệ trẻ học Toeic hiệu quả.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Liên tục học hỏi - Tận tâm - Bền bỉ - Hợp lực - Hướng tới sự xuất sắc.</span></li>
             </ul>
             <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
           </div>
@@ -334,91 +334,95 @@ if (isset($_SESSION['success_message'])) {
         <p class="">Popular Courses</p>
       </div><!-- End Section Title -->
 
-      <div class="container">
+      <section id="courses-list" class="section courses-list">
 
-        <div class="row">
+<div class="container">
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="course-item">
-              <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <p class="category">Web Development</p>
-                  <p class="price">$169</p>
-                </div>
+  <div class="row">
 
-                <h3><a href="course-details.html">Website Design</a></h3>
-                <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/trainer-1-2.jpg" class="img-fluid" alt="">
-                    <a href="" class="trainer-link">Antonio</a>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bi bi-person user-icon"></i>&nbsp;50
-                    &nbsp;&nbsp;
-                    <i class="bi bi-heart heart-icon"></i>&nbsp;65
-                  </div>
-                </div>
-              </div>
+    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+      <div class="course-item">
+        <img src="assets/img/course2.jpg" class="img-fluid" alt="...">
+        <div class="course-content">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <p class="category">Toeic 550+</p>
+            <p class="price"></p>
+          </div>
+
+          <h3><a href="course-details C.php">Camp Bomb Toeic</a></h3>
+          <p class="description">Giải pháp tối ưu nâng tầm trình độ Listening & Reading.</p>
+          <div class="trainer d-flex justify-content-between align-items-center">
+            <div class="trainer-profile d-flex align-items-center">
+              <img src="assets/img/thành.jpg" class="img-fluid" alt="">
+              <a href="" class="trainer-link">Trần Quốc Thành</a>
             </div>
-          </div> <!-- End Course Item-->
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="course-item">
-              <img src="assets/img/course-2.jpg" class="img-fluid" alt="...">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <p class="category">Marketing</p>
-                  <p class="price">$250</p>
-                </div>
-
-                <h3><a href="course-details.html">Search Engine Optimization</a></h3>
-                <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/trainer-2-2.jpg" class="img-fluid" alt="">
-                    <a href="" class="trainer-link">Lana</a>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bi bi-person user-icon"></i>&nbsp;35
-                    &nbsp;&nbsp;
-                    <i class="bi bi-heart heart-icon"></i>&nbsp;42
-                  </div>
-                </div>
-              </div>
+            <div class="trainer-rank d-flex align-items-center">
+              <i class="bi bi-person user-icon"></i>&nbsp;50
+              &nbsp;&nbsp;
+              <i class="bi bi-heart heart-icon"></i>&nbsp;65
             </div>
-          </div> <!-- End Course Item-->
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-            <div class="course-item">
-              <img src="assets/img/course-3.jpg" class="img-fluid" alt="...">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <p class="category">Content</p>
-                  <p class="price">$180</p>
-                </div>
-
-                <h3><a href="course-details.html">Copywriting</a></h3>
-                <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/trainer-3-2.jpg" class="img-fluid" alt="">
-                    <a href="" class="trainer-link">Brandon</a>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bi bi-person user-icon"></i>&nbsp;20
-                    &nbsp;&nbsp;
-                    <i class="bi bi-heart heart-icon"></i>&nbsp;85
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> <!-- End Course Item-->
-
+          </div>
         </div>
-
       </div>
+    </div> <!-- End Course Item-->
+
+    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+      <div class="course-item">
+        <img src="assets/img/course1.jpg" class="img-fluid" alt="...">
+        <div class="course-content">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <p class="category">Toeic 700+</p>
+            <p class="price"></p>
+          </div>
+
+          <h3><a href="course-details S.php">Submarine Toeic</a></h3>
+          <p class="description">Chinh phục đỉnh cao Toeic Listening & Reading.</p>
+          <div class="trainer d-flex justify-content-between align-items-center">
+            <div class="trainer-profile d-flex align-items-center">
+              <img src="assets/img/minhnguyet.jpg" class="img-fluid" alt="">
+              <a href="" class="trainer-link">Nguyễn Minh Nguyệt</a>
+            </div>
+            <div class="trainer-rank d-flex align-items-center">
+              <i class="bi bi-person user-icon"></i>&nbsp;35
+              &nbsp;&nbsp;
+              <i class="bi bi-heart heart-icon"></i>&nbsp;42
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- End Course Item-->
+
+    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+      <div class="course-item">
+        <img src="assets/img/course3.jpg" class="img-fluid" alt="...">
+        <div class="course-content">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <p class="category">Toeic Training</p>
+            <p class="price"></p>
+          </div>
+
+          <h3><a href="course-details.html">Training</a></h3>
+          <p class="description">Đào tạo đội ngũ giảng viên chuyên nghiệp, chất lượng.</p>
+          <div class="trainer d-flex justify-content-between align-items-center">
+            <div class="trainer-profile d-flex align-items-center">
+              <img src="assets/img/trainers/trainer-3-2.jpg" class="img-fluid" alt="">
+              <a href="" class="trainer-link">Brandon</a>
+            </div>
+            <div class="trainer-rank d-flex align-items-center">
+              <i class="bi bi-person user-icon"></i>&nbsp;20
+              &nbsp;&nbsp;
+              <i class="bi bi-heart heart-icon"></i>&nbsp;85
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- End Course Item-->
+
+  </div>
+
+</div>
+
+</section><!-- /Courses List Section -->
 
     </section><!-- /Courses Section -->
 
@@ -431,7 +435,7 @@ if (isset($_SESSION['success_message'])) {
 
           <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
             <div class="member">
-              <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
+              <img src="assets/img/thành.jpg" class="img-fluid" alt="">
               <div class="member-content">
                 <h4>Trần Quốc Thành</h4>
                 <span>Camp Bomb Toeic</span>
@@ -450,7 +454,7 @@ if (isset($_SESSION['success_message'])) {
 
           <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
             <div class="member">
-              <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
+              <img src="assets/img/minhnguyet.jpg" class="img-fluid" alt="">
               <div class="member-content">
                 <h4>Nguyễn Minh Nguyệt</h4>
                 <span>Submarine Toeic</span>
@@ -469,7 +473,7 @@ if (isset($_SESSION['success_message'])) {
 
           <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
             <div class="member">
-              <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
+              <img src="assets/img/trang.jpg" class="img-fluid" alt="">
               <div class="member-content">
                 <h4>Phan Thu Trang</h4>
                 <span>Submarine Toeic</span>

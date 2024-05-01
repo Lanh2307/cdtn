@@ -4,13 +4,13 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Trainers - Mentor Bootstrap Template</title>
+  <title>Trainers - Zenlish</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/pngegg.png" rel="icon">
+ 
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -54,10 +54,11 @@
           <li><a href="trainers.php">Trainers</a></li>
           <li class="dropdown has-dropdown"><a href="courses.php"><span>Courses</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Camp Bomb Toeic</a></li>
-              <li><a href="#">Submarine Toeic</a></li>
+              <li><a href="course-details C.php">Camp Bomb Toeic</a></li>
+              <li><a href="course-details S.php">Submarine Toeic</a></li>
 
             </ul>
+
           </li>
           <li><a href="contact.php">Contact</a></li>
         </ul>

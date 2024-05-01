@@ -34,13 +34,13 @@ if (isset($_POST['TenHV'])) {
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Zenlish</title>
+    <title>Register - Zenlish</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- Favicons -->
+  <link href="assets/img/pngegg.png" rel="icon">
+
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -111,6 +111,7 @@ if (isset($_POST['TenHV'])) {
         }
 
         .registration-form {
+            margin-right: 0px;
             max-width: 40%;
             background: #fff;
             border-radius: 15px;
@@ -119,7 +120,7 @@ if (isset($_POST['TenHV'])) {
 
         .img-fluid {
             max-width: 90%;
-            height: 95%;
+            height: 97%;
             /* Giảm kích thước ảnh nếu cần */
             margin: 0 auto;
             /* Căn ảnh giữa cột */
@@ -145,15 +146,22 @@ if (isset($_POST['TenHV'])) {
             <nav id="navmenu" class="navmenu">
                 <ul>
                     <li><a href="index.php" class="active">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="about.php">About</a></li>
+                    <li class="dropdown has-dropdown"><a href="courses.php"><span>Courses</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="course-details C.php">Camp Bomb Toeic</a></li>
+                        <li><a href="course-details S.php">Submarine Toeic</a></li>
 
-                    <li><a href="register.php">Contact</a></li>
+                    </ul>
+
+                    </li>
+
+                    <li><a href="contact.php">Contact</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
 
-            <a class="btn-getstarted" href="register.php">Get Started</a>
+            <a class="btn-getstarted" href="register.php">Tư vấn</a>
 
         </div>
     </header>
@@ -161,7 +169,7 @@ if (isset($_POST['TenHV'])) {
     <div class="container">
         <div class="row">
             <div class="registration-form">
-                <h2 class="text-center">Đăng Ký Học Viên</h2>
+                <h2 class="text-center">Đăng Ký Tư Vấn</h2>
                 <form action="submit_form.php" method="POST">
                     <!-- Name -->
                     <div class="mb-3">

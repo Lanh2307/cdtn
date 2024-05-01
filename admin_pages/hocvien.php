@@ -17,7 +17,7 @@ if ($conn->connect_error) {
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>SB Admin 2 - Tables</title>
+  <title>SB Admin - Zenlish</title>
 
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
@@ -36,7 +36,7 @@ if ($conn->connect_error) {
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -48,7 +48,7 @@ if ($conn->connect_error) {
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -59,7 +59,7 @@ if ($conn->connect_error) {
       <!-- Heading -->
       <div class="sidebar-heading">Interface</div>
 
-      <!-- Nav Item - Pages Collapse Menu -->
+      <!-- Nav Item - Pages Collapse Menu
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
@@ -74,7 +74,7 @@ if ($conn->connect_error) {
         </div>
       </li>
 
-      <!-- Nav Item - Utilities Collapse Menu -->
+      // Nav Item - Utilities Collapse Menu 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-fw fa-wrench"></i>
@@ -91,13 +91,13 @@ if ($conn->connect_error) {
         </div>
       </li>
 
-      <!-- Divider -->
+      //Divider 
       <hr class="sidebar-divider" />
 
-      <!-- Heading -->
+      // Heading 
       <div class="sidebar-heading">Addons</div>
 
-      <!-- Nav Item - Pages Collapse Menu -->
+      //Nav Item - Pages Collapse Menu 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-fw fa-folder"></i>
@@ -115,21 +115,21 @@ if ($conn->connect_error) {
             <a class="collapse-item" href="blank.html">Blank Page</a>
           </div>
         </div>
-      </li>
+      </li> -->
 
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="charts.php">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
-      </li>
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="lophoc.php">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Quản lý lớp học</span></a>
+            </li>
 
-      <!-- Nav Item - Tables -->
-      <li class="nav-item active">
-        <a class="nav-link" href="tables.php">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
-      </li>
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="hocvien.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Quản lý học viên</span></a>
+            </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block" />
@@ -310,7 +310,7 @@ if ($conn->connect_error) {
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Lan Anh</span>
                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg" />
               </a>
               <!-- Dropdown - User Information -->
@@ -341,19 +341,19 @@ if ($conn->connect_error) {
         <!-- Begin Page Content -->
         <div class="container-fluid">
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+          <!-- <h1 class="h3 mb-2 text-gray-800">Tables</h1>
           <p class="mb-4">
             DataTables is a third party plugin that is used to generate the
             demo table below. For more information about DataTables, please
             visit the
             <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.
-          </p>
+          </p> -->
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">
-                DataTables Example
+                Danh sách học viên đăng ký
               </h6>
             </div>
             <div class="card-body">
@@ -399,7 +399,7 @@ if ($conn->connect_error) {
                         //   // Modal cho Xóa
                         echo createModalDelete("deleteModal$maHV", "Xóa Học Viên", $row);
                         // Modal cho Sửa
-                        echo createModalEdit("editModal$maHV", "Sửa Thông tin Học Viên", $row, $conn);
+                        echo createModalEdit("editModal$maHV", "Sửa Thông Tin Học Viên", $row, $conn);
                         //   // Modal cho Xếp Lớp
                         //   echo createModal("classifyModal$maHV", "Xếp Lớp Học Viên", $row);
                       }

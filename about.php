@@ -4,13 +4,12 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>About - Mentor Bootstrap Template</title>
+  <title>About Zenlish</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/pngegg.png" rel="icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -54,10 +53,11 @@
           <li><a href="trainers.php">Trainers</a></li>
           <li class="dropdown has-dropdown"><a href="courses.php"><span>Courses</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Camp Bomb Toeic</a></li>
-              <li><a href="#">Submarine Toeic</a></li>
+              <li><a href="course-details C.php">Camp Bomb Toeic</a></li>
+              <li><a href="course-details S.php">Submarine Toeic</a></li>
 
             </ul>
+
           </li>
           <li><a href="contact.php">Contact</a></li>
         </ul>
@@ -78,7 +78,7 @@
           <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-8">
               <h1 class="">About Us<br></h1>
-              <p class="mb-0">Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
+              <p class="mb-0">Zenlish là trung tâm duy nhất tại Hà Nội có lộ trình đào tạo TOEIC Học 1 Lần Là Đạt.</p>
             </div>
           </div>
         </div>
@@ -105,15 +105,17 @@
           </div>
 
           <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
-            <h3>Voluptatem dignissimos provident quasi corporis</h3>
+            <h3>Giới thiệu</h3>
             <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+              Zenlish là trung tâm duy nhất tại Hà Nội có lộ trình đào tạo TOEIC Học 1 Lần Là Đạt,
+              tạo ra sự tiến bộ từng ngày cho những học viên đã từng sợ, học đi học lại nhiều lần nhưng không đạt,
+              những người mong muốn học TOEICc ra trường hay đạt trên 800 TOEIC từ lần đầu học để sử dụng thành thạo Tiếng Anh,
+              tạo ra lợi thế khác biệt trong môi trường cạnh tranh việc làm khốc liệt.
             </p>
             <ul>
-              <li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Trở thành trung tâm đào tạo Toeic chất lượng nhất.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Đồng hành và dẫn dắt thế hệ trẻ học Toeic hiệu quả.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Liên tục học hỏi - Tận tâm - Bền bỉ - Hợp lực - Hướng tới sự xuất sắc.</span></li>
             </ul>
           </div>
 
@@ -123,8 +125,8 @@
 
     </section><!-- /About Us Section -->
 
-    <!-- Stats About Section -->
-    <section id="stats-about" class="stats-about section">
+    <!-- Counts Section -->
+    <section id="counts" class="section counts">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -132,28 +134,28 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="237" data-purecounter-duration="1" class="purecounter"></span>
               <p class="">Students</p>
             </div>
           </div><!-- End Stats Item -->
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1" class="purecounter"></span>
               <p class="">Courses</p>
             </div>
           </div><!-- End Stats Item -->
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
               <p class="">Events</p>
             </div>
           </div><!-- End Stats Item -->
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="35" data-purecounter-duration="1" class="purecounter"></span>
               <p class="">Trainers</p>
             </div>
           </div><!-- End Stats Item -->
@@ -162,7 +164,7 @@
 
       </div>
 
-    </section><!-- /Stats About Section -->
+    </section><!-- /Counts Section -->
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section">

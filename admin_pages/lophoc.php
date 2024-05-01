@@ -17,7 +17,7 @@ if ($conn->connect_error) {
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>SB Admin 2 - Tables</title>
+  <title>SB Admin 2 - Classes</title>
 
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
@@ -52,7 +52,7 @@ if ($conn->connect_error) {
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -64,7 +64,7 @@ if ($conn->connect_error) {
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -75,7 +75,7 @@ if ($conn->connect_error) {
       <!-- Heading -->
       <div class="sidebar-heading">Interface</div>
 
-      <!-- Nav Item - Pages Collapse Menu -->
+      <!-- Nav Item - Pages Collapse Menu
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
@@ -90,7 +90,7 @@ if ($conn->connect_error) {
         </div>
       </li>
 
-      <!-- Nav Item - Utilities Collapse Menu -->
+      // Nav Item - Utilities Collapse Menu 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-fw fa-wrench"></i>
@@ -105,15 +105,15 @@ if ($conn->connect_error) {
             <a class="collapse-item" href="utilities-other.html">Other</a>
           </div>
         </div>
-      </li>
+      </li> -->
 
       <!-- Divider -->
-      <hr class="sidebar-divider" />
+      <!-- <hr class="sidebar-divider" />
 
-      <!-- Heading -->
+      // Heading 
       <div class="sidebar-heading">Addons</div>
 
-      <!-- Nav Item - Pages Collapse Menu -->
+      // Nav Item - Pages Collapse Menu 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-fw fa-folder"></i>
@@ -131,21 +131,21 @@ if ($conn->connect_error) {
             <a class="collapse-item" href="blank.html">Blank Page</a>
           </div>
         </div>
-      </li>
+      </li> -->
 
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="charts.php">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
-      </li>
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="lophoc.php">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Quản lý lớp học</span></a>
+            </li>
 
-      <!-- Nav Item - Tables -->
-      <li class="nav-item active">
-        <a class="nav-link" href="tables.php">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
-      </li>
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="hocvien.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Quản lý học viên</span></a>
+            </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block" />
@@ -326,7 +326,7 @@ if ($conn->connect_error) {
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Lan Anh</span>
                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg" />
               </a>
               <!-- Dropdown - User Information -->
@@ -357,19 +357,19 @@ if ($conn->connect_error) {
         <!-- Begin Page Content -->
         <div class="container-fluid">
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-          <p class="mb-4">
+          <!-- <h1 class="h3 mb-2 text-gray-800">Danh sách lớp học</h1> -->
+          <!-- <p class="mb-4">
             DataTables is a third party plugin that is used to generate the
             demo table below. For more information about DataTables, please
             visit the
             <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.
-          </p>
+          </p> -->
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">
-                DataTables Example
+                Danh sách lớp học
               </h6>
               <!-- Nút Thêm lớp -->
               <button class="btn btn-success" data-toggle="modal" data-target="#addClassModal">Thêm lớp</button>
@@ -429,22 +429,42 @@ if ($conn->connect_error) {
                       <div class="form-group">
                         <label for="TinhTrang">Tình Trạng</label>
                         <select class="form-control" id="TinhTrang" name="TinhTrang">
-                          <option value="Hoạt Động">Còn chỗ</option>
-                          <option value="Không Hoạt Động">Hết chỗ</option>
+                          <option value="Còn chỗ">Còn chỗ</option>
+                          <option value="Hết chỗ">Hết chỗ</option>
                         </select>
                       </div>
                       <div class="form-group">
+                        <!-- <label for="MaCH">Mã Ca Học</label> -->
+                        
                         <label for="MaCH">Mã Ca Học</label>
-                        <input type="text" class="form-control" id="MaCH" name="MaCH">
+                        <select class="form-control" id="MaCH" name="MaCH">
+                          <option value="Ca 01">Ca 01</option>
+                          <option value="Ca 02">Ca 02</option>
+                        </select>
+                      
+                        <!-- <input type="text" class="form-control" id="MaCH" name="MaCH"> -->
                       </div>
                       <div class="form-group">
-                        <label for="MaCN">Mã Chi Nhánh</label>
-                        <input type="text" class="form-control" id="MaCN" name="MaCN">
+                        <label for="MaGV">Giáo Viên</label>
+                        <select class="form-control" id="MaGV" name="MaGV">
+                          <option value="GV01">Quốc Thành</option>
+                          <option value="GV02">Minh Nguyệt</option>
+                          <option value="GV03">Phan Thu Trang</option>
+                        </select>
                       </div>
                       <div class="form-group">
+                        <label for="MaCN">Chi Nhánh</label>
+                        <!-- <input type="text" class="form-control" id="MaCN" name="MaCN"> -->
+                        <select class="form-control" id="MaCN" name="MaCN">
+                          <option value="CN01">Tây Sơn</option>
+                          <option value="CN02">Hai Bà Trưng</option>
+                    
+                        </select>
+                      </div>
+                      <!-- <div class="form-group">
                         <label for="MaGV">Mã Giáo Viên</label>
                         <input type="text" class="form-control" id="MaGV" name="MaGV">
-                      </div>
+                      </div> -->
                     </form>
                   </div>
                   <div class="modal-footer">
@@ -462,10 +482,11 @@ if ($conn->connect_error) {
                     <tr>
                       <th>Mã lớp</th>
                       <th>Loại lớp</th>
-                      <th>ngày bắt đầu</th>
+                      <th>Ngày bắt đầu</th>
                       <th>Sĩ số</th>
                       <th>Tình trạng</th>
                       <th>Tên giáo viên</th>
+                      <th>Quản lý</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -483,10 +504,165 @@ if ($conn->connect_error) {
                         echo "<td>" . $row["SiSo"] . "</td>";
                         echo "<td>" . $row["TinhTrang"] . "</td>";
                         echo "<td>" . $row["TenGV"] . "</td>";
+
+                        echo "<td>
+                                  <button data-toggle='modal' data-target='#editModal{$row["MaLop"]}' class='btn btn-secondary btn-sm'>Sửa</button>
+                                  <button data-toggle='modal' data-target='#deleteModal{$row["MaLop"]}' class='btn btn-danger btn-sm'>Xóa</button>
+                                </td>";
                         echo "</tr>";
+                        // Modal cho Xem
+                       // echo createModalView("viewModal{$row["MaLop"]}", "Xem Học Viên", $row);
+
+                        //echo createModalDelete(<deleteModal1>row.MaLop</deleteModal1>, "Xóa Lớp", $row);
+                        // Modal cho Sửa
+                        echo createModalEdit("editModal{$row["MaLop"]}", "Sửa Thông Tin Lớp", $row, $conn);
+                        // Modal cho Xóa
+                        echo createModalDelete("deleteModal{$row["MaLop"]}", "Xóa Lớp", $row);
+
+                        //   // Modal cho Xếp Lớp
+                        //   echo createModal("classifyModal$maHV", "Xếp Lớp Học Viên", $row);
+                        
                       }
+                    }else {
+                      echo "<tr><td colspan='5'>0 results</td></tr>";
+                    }
+                    function fetchClasses($conn)
+                    {
+                      $classOptions = '';
+                      $query = "SELECT MaLop FROM lop_hoc WHERE TinhTrang = 'Còn Chỗ'";
+                      $result = $conn->query($query);
+                      while ($row = $result->fetch_assoc()) {
+                        $classOptions .= "<option value='" . $row['MaLop'] . "'>" . $row['MaLop'] . "</option>";
+                      }
+                      return $classOptions;
+                    }
+                    function createModalEdit($id, $title, $row, $conn)
+                    {
+
+                      $classOptions = fetchClasses($conn);
+                      $modalEditContent = "
+                      <div class='modal fade' id='{$id}' tabindex='-1' role='dialog' aria-labelledby='{$id}EditLabel' aria-hidden='true'>
+                          <div class='modal-dialog modal-dialog-centered' role='document'>
+                              <div class='modal-content'>
+                                  <div class='modal-header'>
+                                      <h5 class='modal-title' id='{$id}EditLabel'>$title</h5>
+                                      <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                          <span aria-hidden='true'>&times;</span>
+                                      </button>
+                                  </div>
+                                  <div class='modal-body'>
+                                      <form id='editForm{$id}' method='post' action='update_class.php'>
+                                          <div class='form-group'>
+                                              <label for='MaLop{$id}'>Mã lớp</label>
+                                              <input type='text' class='form-control' id='MaLop{$id}' name='MaLop' value='" . $row["MaLop"] . "' readonly>
+                                          </div>
+                                          <div class='form-group'>
+                                              <label for='LoaiLop{$id}'>Loại lớp</label>
+                                              <input type='text' class='form-control' id='LoaiLop{$id}' name='LoaiLop' value='" . $row["LoaiLop"] . "' required>
+                                          </div>
+                                          <div class='form-group'>
+                                              <label for='NgayBD{$id}'>Ngày bắt đầu</label>
+                                              <input type='date' class='form-control' id='NgayBD{$id}' name='NgayBD' value='" . $row["NgayBD"] . "' required>
+                                          </div>
+                                          <div class='form-group'>
+                                              <label for='NgayKT{$id}'>Ngày kết thúc</label>
+                                              <input type='date' class='form-control' id='NgayKT{$id}' name='NgayKT' value='" . $row["NgayKT"] . "' required>
+                                          </div>
+                                          <div class='form-group'>
+                                          <label for='SiSo'>Sĩ Số</label>
+                                          <input type='number' class='form-control' id='SiSo' name='SiSo' required>
+                                          </div>
+                                          <div class='form-group'>
+                                          <label for='TinhTrang'>Tình Trạng</label>
+                                          <select class='form-control' id='TinhTrang' name='TinhTrang'>
+                                          <option value='Còn chỗ'>Còn chỗ</option>
+                                          <option value='Hết chỗ'>Hết chỗ</option>
+                                          </select>
+                                          </div>
+                                          <div class='form-group'>
+                                          <label for='MaCH'>Mã Ca Học</label>
+                                          <select class='form-control' id='MaCH' name='MaCH'>
+                                            <option value='Ca 01'>Ca 01</option>
+                                            <option value='Ca 02'>Ca 02</option>
+                                          </select>
+    
+                                        </div>
+                                        <div class='form-group'>
+                                          <label for='MaGV'>Giáo Viên</label>
+                                          <select class='form-control' id='MaGV' name='MaGV'>
+                                            <option value='GV01'>Quốc Thành</option>
+                                            <option value='GV02'>Minh Nguyệt</option>
+                                            <option value='GV03'>Phan Thu Trang</option>
+                                          </select>
+                                        </div>
+                                        <div class='form-group'>
+                                          <label for='MaCN'>Chi Nhánh</label>
+                                          <select class='form-control' id='MaCN' name='MaCN'>
+                                            <option value='CN01'>Tây Sơn</option>
+                                            <option value='CN02'>Hai Bà Trưng</option>
+                                      
+                                          </select>
+                                        </div> 
+                                        <!-- Có thể thêm các trường nhập liệu khác nếu cần -->
+                                    </form>
+                                  </div>
+                                  <div class='modal-footer'>
+                                      <button type='button' class='btn btn-secondary' data-dismiss='modal'>Đóng</button>
+                                      <button type='submit' form='editForm{$id}' class='btn btn-primary'>Lưu Thay Đổi</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      ";
+
+                      return $modalEditContent;
+                    }
+
+                    function createModalDelete($id, $title, $row)
+                    {
+                      $modalDeleteContent = "
+                      <div class='modal fade' id='{$id}' tabindex='-1' role='dialog' aria-labelledby='{$id}DeleteLabel' aria-hidden='true'>
+                          <div class='modal-dialog modal-dialog-centered' role='document'>
+                              <div class='modal-content'>
+                                  <div class='modal-header'>
+                                      <h5 class='modal-title' id='{$id}DeleteLabel'>$title</h5>
+                                      <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                          <span aria-hidden='true'>&times;</span>
+                                      </button>
+                                  </div>
+                                  <div class='modal-body'>
+                                      Bạn có chắc chắn muốn xóa lớp học này không?
+                                  </div>
+                                  <div class='modal-footer'>
+                                      <button type='button' class='btn btn-secondary' data-dismiss='modal'>Hủy</button>
+                                      <button type='button' class='btn btn-danger' onclick='deleteStudent(\"" . $row['MaLop'] . "\")'>Xóa</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      ";
+                      return $modalDeleteContent;
                     }
                     ?>
+                    <script>
+                      function deleteClass(maLop) {
+                        $.ajax({
+                          url: 'delete_class.php', // Đường dẫn tới file xử lý
+                          type: 'POST',
+                          data: {
+                            MaLop: maLop
+                          },
+                          success: function(response) {
+                            // Thông báo thành công hoặc cập nhật trang
+                            alert('Xóa lớp học thành công!');
+                            window.location.reload(); // Tải lại trang để cập nhật danh sách
+                          },
+                          error: function() {
+                            alert('Có lỗi xảy ra, vui lòng thử lại.');
+                          }
+                        });
+                      }
+                    </script>
                   </tbody>
                 </table>
               </div>

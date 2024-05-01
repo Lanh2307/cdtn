@@ -32,10 +32,11 @@
     <div class="col-lg-2 col-md-3 footer-links">
       <h4>Our Courses</h4>
       <ul>
-        <li><a href="#">Camp Bomb Toeic</a></li>
-        <li><a href="#">Submarine Toeic</a></li>
-        
+              <li><a href="course-details C.php">Camp Bomb Toeic</a></li>
+              <li><a href="course-details S.php">Submarine Toeic</a></li>
+
       </ul>
+
     </div>
 
     <div class="col-lg-4 col-md-12 footer-newsletter">

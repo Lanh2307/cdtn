@@ -14,24 +14,23 @@ if ($conn->connect_error) {
 // Kiểm tra xem có dữ liệu được gửi đến script qua phương thức POST không
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Lấy dữ liệu từ form
-    $maHV = $_POST['MaHV'];
-    $tenHV = $_POST['TenHV'];
-    $ngaySinh = $_POST['NgaySinh'];
-    $gioiTinh = $_POST['GioiTinh'];
-    $diaChi = $_POST['DiaChi'];
-    $sdtHV = $_POST['SdtHV'];
-    $emailHV = $_POST['EmailHV'];
-    $ngayTiepNhan = $_POST['NgayTiepNhan'];
-    $diemDauVao = $_POST['DiemDauVao'];
     $maLop = $_POST['MaLop'];
+    $loaiLop = $_POST['LoaiLop'];
+    $ngayBD = $_POST['NgayBD'];
+    $ngayKT = $_POST['NgayKT'];
+    $siso = $_POST['SiSo'];
+    $tinhtrang = $_POST['TinhTrang'];
+    $maCH = $_POST['MaCH'];
+    $maGV = $_POST['MaGV'];
+    $maCN = $_POST['MaCN'];
 
     // Tạo và thực thi truy vấn SQL sử dụng prepared statement để tránh SQL injection
-    $stmt = $conn->prepare("UPDATE hoc_vien SET TenHV=?, NgaySinh=?, GioiTinh=?, DiaChi=?, SdtHV=?, EmailHV=?, DiemDauVao=?, MaLop=? WHERE MaHV=?");
-    $stmt->bind_param("ssisssisi", $tenHV, $ngaySinh, $gioiTinh, $diaChi, $sdtHV, $emailHV, $diemDauVao, $maLop, $maHV);
+    $stmt = $conn->prepare("UPDATE lop_hoc SET LoaiLop=?, NgayBD=?, NgayKT=?, SiSo=?, TinhTrang=?, MaCH=?, MaGV=?, MaCN=? WHERE MaLop=?");
+    $stmt->bind_param("ssisssisi", $loaiLop, $ngayBD, $ngayKT, $siso, $tinhtrang, $maCH, $maGV, $maCN);
 
     // Kiểm tra xem truy vấn có thành công không
     if ($stmt->execute()) {
-        echo "Cập nhật thông tin học viên thành công.";
+        echo "Cập nhật thông tin lớp học thành công.";
     } else {
         echo "Lỗi: " . $conn->error;
     }
@@ -43,6 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $conn->close();
 
 // Chuyển hướng người dùng trở lại trang trước đó hoặc hiển thị thông báo
-header("Location: hocvien.php"); // Thay đổi đường dẫn phù hợp
+header("Location: lophoc.php"); // Thay đổi đường dẫn phù hợp
 exit();
 ?>
